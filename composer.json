@@ -1,0 +1,41 @@
+{
+    "name": "wordplate/wordplate",
+    "description": "A modern WordPress stack built with Composer",
+    "keywords": ["wordplate", "wordpress", "boilerplate", "plate"],
+    "license": "MIT",
+    "require": {
+        "php": "^7.0",
+        "wordplate/framework": "^6.0",
+        "wordplate/plate": "^3.0",
+        "wpackagist-plugin/contact-form-7": "^5.0",
+        "wpackagist-plugin/progress-bar": "^2.1",
+        "wpackagist-plugin/siteorigin-panels": "^2.6",
+        "wpackagist-plugin/so-widgets-bundle": "^1.11",
+        "wpackagist-plugin/sydney-toolbox": "^1.02",
+        "wpackagist-plugin/universal-star-rating": "^2.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "extra": {
+        "installer-paths": {
+            "public/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+            "public/plugins/{$name}": ["type:wordpress-plugin"],
+            "public/themes/{$name}": ["type:wordpress-theme"]
+        },
+        "wordpress-install-dir": "public/wordpress"
+    }
+}
